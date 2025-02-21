@@ -53,6 +53,7 @@ Komunikasi data dalam jaingan berdasarkan model lapisan jaringan (OSI atau TCP/I
    - Lapisan ini menangani komunikasi anatar perangkat dalam satu jaringan fisik
    - Protokol yung digunakan bisa berupa Ethernet, Wi=Fi, atau PPP (Point-toPoint Protocol)
    - Data dikirm dalam bentuk frame, dan MAC address digunakan untuk identifikasi dalam satu jaringan lokal
+
   Alur Perjalanan Data
   1. Sebuah proses (aplikasi) pada komputer pengirim menginisiasi komunikasi
   2. Data diproses di lapisan transport menggunakan TCP/UDP
