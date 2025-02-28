@@ -26,3 +26,23 @@ UID adlah ID pengguna yang memilai proses, sedangkan EUID digunakan untuk menent
 Proses baru dibuat dengan panggilan `fork`. Proses hasil duplikasi memiliki PID yang berbeda, tetapi sebagian besar identik dengan induknya. Sistem Linux menggunakan `clone`, yang merupaakan superset dari `fork`, untuk menangani thread dan fitur tambahan.
 Saat sistem boot, kernel membuat beberapa proses, termasuk `init` atau `systemd` yang selalu memiliki PID 1.
 
+### Sinyal
+
+### kill: send sinyal
+
+## Monitoring Proesses
+
+## Interactive monitoring with top
+
+## Nice and renice: changing process priority
+
+## The /proc filesystem
+
+## Strace and truss
+
+## Runaway processes
+
+## Periodic processes
+### cron: schedule command
+### format of crontab
+### Systemd timer
