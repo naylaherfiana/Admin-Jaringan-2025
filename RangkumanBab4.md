@@ -3,3 +3,26 @@
 ## Komponen dalam sebuah proses
 Sebuah proses terdiri dari ruang alamat dan serangkaian struktur data dalam kernel. Ruang alamat adalah sekumpulan halaman memori yang telah ditandai oleh kernel untuk digunakan oleh proses. Halaman ini digunakan untuk mentimpan kode, data, dan tumpukan proses. Struktur data dalam kernel melacak status proses, prioritas, parameter penjadwalan, dan lainnya.
 Proses dapat dianggap sebagai wadah sumber data yang dikelola oleh kernel atas nama program yang berjalan. Sumber daya ini mencakup halaman memori, deskriptor file, dan atribut lainnya.
+
+Informasi yang dicatat oleh kernel tentang setiap proses meliputi:
+1. Peta ruang alamat proses
+2. Status proses saat ini (berjalan, tidur, dll.)
+3. Prioritas proses
+4. Informasi penggunaan sumber data (CPU, memori, dll.)
+5. Informasi tentang file dan port jaringan yang dibuka
+6. Masker sinyal proses
+7. Pemilik proses (ID pengguna yang memulai proses)
+
+### PID: process ID number
+Setiap proses diidentifikasi dengan moner PID unik. PID adlah bilangan bulat yang ditetapkan kernel untuk setiap proses saat proses tersebut dibuat. PID digunakan dalam pemanggilan sistem seperti pengiriman sinyal ke proses.
+
+### PPID: parent process ID number
+PPID adalah PID dari proses infuk yang membuat proses tersebut. PPID digunakan untuk kerujuk ke proses induk dalam berbagai panggilan sistem, misalnya untuk mengirim sintal ke proses induk.
+
+### UID dan EUID: user ID dan effective user ID
+UID adlah ID pengguna yang memilai proses, sedangkan EUID digunakan untuk menentukan hak akses proses ke sumber daya.
+
+## Siklus Hidup Proses
+Proses baru dibuat dengan panggilan `fork`. Proses hasil duplikasi memiliki PID yang berbeda, tetapi sebagian besar identik dengan induknya. Sistem Linux menggunakan `clone`, yang merupaakan superset dari `fork`, untuk menangani thread dan fitur tambahan.
+Saat sistem boot, kernel membuat beberapa proses, termasuk `init` atau `systemd` yang selalu memiliki PID 1.
+
