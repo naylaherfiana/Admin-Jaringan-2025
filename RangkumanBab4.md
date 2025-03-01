@@ -34,27 +34,62 @@ Jenis sinyal:
 - **TERM**: Permintaan untuk menghentikan proses dengan pembersihan sumber daya
 - **HUP**: Notifikasi penutupan terminal
 - **QUIT**: Mirip dengan TERM, tetapi menghasilkan core dump.
+
+### kill: send sinyal
 Perintah `kill` digunakan untuk mengirim sinyal ke proses.
 Contoh:
 ```
 kill -9 pid
 ```
 
-### kill: send sinyal
-
-## Monitoring Proesses
-
-## Interactive monitoring with top
+## Monitoring Proesses and Interactive monitoring with top
+Perintah `ps` digunaskan untuk memantau proses.
+Contoh:
+```
+ps aux
+```
+untuk opemantauan interaktif, gunakan `top` atau `htop`
 
 ## Nice and renice: changing process priority
+Prioritas proses dapat diatur menggunakan perintah `nice` dan diubah menggunakan `renice`.
+Contoh:
+```
+nice -n 10 sh infinite.sh &
+renice -n 10 `p 1234
+```
 
 ## The /proc filesystem
+Direktori `/proc` adalah pseudo-filesystem yang digunakan oleh kernel untuk mengekspos informasi tentang status sistem.
 
 ## Strace and truss
+Gunakan `stace` (Linux) atau `truss` (FreeBSD) untuk melacak pemanggilan sistem dan sinyal.
+Contoh:
+```
+strace -p 5810
+```
 
 ## Runaway processes
 
 ## Periodic processes
-### cron: schedule command
-### format of crontab
-### Systemd timer
+Gunakan `cron` atau `systemd timers` utnuk menjalankan tugas berkala
+**Format crontab**:
+```
+* * * * * perintah
+```
+**Contoh**:
+```
+30 2 * * * /usr/bin/python3 /path/to/script.py
+```
+**Perintah systemd**:
+```
+systemctl list-timers
+```
+
+### Penggunaan Umum Tugas yang Terjadwal
+- Mengirim email
+- Membersihkan filesystem
+- Rotasi log
+- Menjalankan pekerjaan batch
+- Pencadangan dan pencerminan data
+
+Proses kontrol sangan penting untuk mengelolaan sistem operasi berbasis Unix dan Linux, membantu mengelola sumber daya dan menjaga kinerja sistem.
