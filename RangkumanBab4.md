@@ -27,6 +27,18 @@ Proses baru dibuat dengan panggilan `fork`. Proses hasil duplikasi memiliki PID 
 Saat sistem boot, kernel membuat beberapa proses, termasuk `init` atau `systemd` yang selalu memiliki PID 1.
 
 ### Sinyal
+Sinyal digunakan untuk memberi notifikasi pada proses tentang suatu kejaidan,
+Jenis sinyal:
+- **KILL**: Tidak dapat diblokir, langsung menghentikan proses.
+- **INT**: Permintaan untuk menghentikan operasi saat ini (dikirim saat menekan `Ctrl+C`)
+- **TERM**: Permintaan untuk menghentikan proses dengan pembersihan sumber daya
+- **HUP**: Notifikasi penutupan terminal
+- **QUIT**: Mirip dengan TERM, tetapi menghasilkan core dump.
+Perintah `kill` digunakan untuk mengirim sinyal ke proses.
+Contoh:
+```
+kill -9 pid
+```
 
 ### kill: send sinyal
 
