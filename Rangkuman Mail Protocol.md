@@ -4,7 +4,7 @@ Nama: Nayla Herfiana Putri
 
 NRP: 3123600015
 
-Kelas: 2 D4 IT 
+Kelas: 2 D4 IT A
 
 # **IMAP vs POP3 vs SMTP**
 
